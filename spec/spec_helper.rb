@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "member_importer"
+require "csv/parser"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
