@@ -18,5 +18,20 @@ module Csv
 
       return true
     end
+
+    def is_phone_valid?(phone_number)
+      formatted_number = phone_number.gsub(/([-+() ])/, '')
+
+      return true if [10, 11].include?(formatted_number.length)
+      
+      return false
+    end
+
+    def format_phone_number(phone_number)
+      formatted_number = phone_number.gsub(/([-+() ])/, '')
+
+      return "+1" + formatted_number if formatted_number.length == 10
+      return "+" + formatted_number if formatted_number.length == 11
+    end
   end
 end
