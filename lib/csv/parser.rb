@@ -48,11 +48,11 @@ module Csv
 
           error_messages = []
 
-          error_messages << "has missing required values." unless is_row_valid?(row)
-          error_messages << "has an invalid date." unless is_date_valid?(row[2])
-          error_messages << "has an invalid date." unless is_date_valid?(row[4])
-          error_messages << "has an invalid date." unless is_date_valid?(row[5])
-          error_messages << "has an invalid phone number." unless is_phone_valid?(row[6])
+          error_messages << "Missing required values." unless is_row_valid?(row)
+          error_messages << "Column '#{@required_header[2]}' has an invalid date." unless is_date_valid?(row[2])
+          error_messages << "Column '#{@required_header[4]}' has an invalid date." unless is_date_valid?(row[4])
+          error_messages << "Column '#{@required_header[5]}' has an invalid date." unless is_date_valid?(row[5])
+          error_messages << "Column '#{@required_header[6]}' has an invalid phone number." unless is_phone_valid?(row[6])
 
           valid_rows << row if error_messages.empty?
           invalid_rows << [i, error_messages] if error_messages.any?
@@ -167,7 +167,7 @@ module Csv
       return if rows.empty?
 
       File.open("output/report.txt", "w") do |file|
-        rows.each { |row| file.write "Row ##{row[0]} errors: #{row[1].join(" ")}\n" } 
+        rows.each { |row| file.write "Row ##{row[0]} errors: #{row[1].join(" ")}\n" }
       end
     end
   end
