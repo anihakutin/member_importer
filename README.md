@@ -1,4 +1,4 @@
-# MemberImporter
+# Member Importer
 
 This importer will parse and format a csv input file.
 Date fields will be validated and formatted according to the ISO8601 format.
@@ -24,6 +24,14 @@ Run parser by calling the parse method:
     $ csv_parser.parse
 
 Your output will be available in the 'output' folder.
+
+## TODO
+
+- Tests need to be expanded to cover more edge cases in dates and phone numbers.
+- Tests need to be expanded to validate output files.
+- Format functions can be expanded for global formatting.
+- Some duplication in the validation and formatting methods, can be broken into smaller methods.
+- Parser can be more dynamic with the ability to pass in custom headers.
 
 ## Development
 
