@@ -1,0 +1,7 @@
+Row #1 errors: Missing required values. Column 'effective_date' has an invalid date. Column 'expiry_date' has an invalid date. Column 'phone_number' has an invalid phone number.
+Row #4 errors: Missing required values. Column 'phone_number' has an invalid phone number.
+Row #10 errors: Missing required values. Column 'expiry_date' has an invalid date.
+Row #11 errors: Missing required values. Column 'expiry_date' has an invalid date.
+Row #12 errors: Missing required values. Column 'dob' has an invalid date. Column 'effective_date' has an invalid date. Column 'expiry_date' has an invalid date.
+Row #13 errors: Missing required values. Column 'expiry_date' has an invalid date.
+Row #14 errors: Missing required values. Column 'expiry_date' has an invalid date.
