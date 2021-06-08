@@ -166,7 +166,9 @@ module Csv
     def write_report(rows)
       return if rows.empty?
 
-
+      File.open("output/report.txt", "w") do |file|
+        rows.each { |row| file.write "Row ##{row[0]} errors: #{row[1].join(" ")}\n" } 
+      end
     end
   end
 end
