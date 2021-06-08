@@ -1,6 +1,7 @@
 module Csv
   class Parser
     require 'csv'
+    require 'date'
 
     def initialize(path)
       begin
@@ -23,15 +24,29 @@ module Csv
       formatted_number = phone_number.gsub(/([-+() ])/, '')
 
       return true if [10, 11].include?(formatted_number.length)
-      
+
       return false
     end
 
     def format_phone_number(phone_number)
       formatted_number = phone_number.gsub(/([-+() ])/, '')
 
-      return "+1" + formatted_number if formatted_number.length == 10
-      return "+" + formatted_number if formatted_number.length == 11
+      return "+1" + formatted_number if formatted_number.length <= 10
+      return "+" + formatted_number if formatted_number.length <= 11
+    end
+
+    def is_date_valid?(date)
+      begin
+        Date.parse(date).strftime('%F')
+
+        return true
+      rescue
+        return false
+      end
+    end
+
+    def format_date(date)
+      return Date.parse(date).strftime('%F')
     end
   end
 end

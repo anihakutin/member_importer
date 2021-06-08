@@ -44,4 +44,28 @@ RSpec.describe Csv::Parser do
 
     expect(formatted_number).to match('^\+?\d{11}$')
   end
+
+  it "returns true if date is valid" do
+    csv_parser = Csv::Parser.new(path)
+    valid_date = '17/12/2014'
+    valid_date_validation = csv_parser.is_date_valid?(valid_date)
+
+    expect(valid_date_validation).to eq(true)
+  end
+
+  it "returns false if date is invalid" do
+    csv_parser = Csv::Parser.new(path)
+    invalid_date = '12/17/2014'
+    invalid_date_validation = csv_parser.is_date_valid?(invalid_date)
+
+    expect(invalid_date_validation).to eq(false)
+  end
+
+  it "transforms valid dates to ISO8601 format" do
+    csv_parser = Csv::Parser.new(path)
+    date = '17/12/2014'
+    formatted_date = csv_parser.format_date(date)
+
+    expect(formatted_date).to match('^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$')
+  end
 end
