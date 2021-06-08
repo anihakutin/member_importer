@@ -55,7 +55,7 @@ RSpec.describe Csv::Parser do
 
   it "returns false if date is invalid" do
     csv_parser = Csv::Parser.new(path)
-    invalid_date = '12/17/2014'
+    invalid_date = ''
     invalid_date_validation = csv_parser.is_date_valid?(invalid_date)
 
     expect(invalid_date_validation).to eq(false)
